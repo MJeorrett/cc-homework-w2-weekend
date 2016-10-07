@@ -30,7 +30,12 @@ class Room < Record
   end
 
   def add_guest(guest)
-    @guests.push(guest)
+    if spare_capacity() > 0
+      @guests.push(guest)
+      return true
+    else
+      return false
+    end
   end
 
   def has_guest?(guest)
