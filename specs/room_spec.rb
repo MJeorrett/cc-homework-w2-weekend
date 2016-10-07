@@ -33,7 +33,7 @@ class RoomTest < MiniTest::Test
     assert(@sixties_theme_room.song_queued?(@house_of_the_rising_sun))
   end
 
-  def test_queued_song_is_last()
+  def test_most_recently_queued_song_is_last()
     @sixties_theme_room.queue_song(@do_wah_diddy_diddy)
     @sixties_theme_room.queue_song(@house_of_the_rising_sun)
     assert_equal(@house_of_the_rising_sun, @sixties_theme_room.queued_songs.last)
