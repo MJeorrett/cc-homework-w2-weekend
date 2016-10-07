@@ -8,4 +8,12 @@ class Room
     @guests = []
   end
 
+  def queue_song(song)
+    @queued_songs.push(song)
+  end
+
+  def song_queued?(song)
+    
+  end
+
 end

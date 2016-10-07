@@ -21,9 +21,9 @@ class RoomTest < MiniTest::Test
     assert_equal(0, @sixties_theme_room.queued_songs.count)
   end
 
-  # def test_can_add_song()
-  #   @sixties_theme_room.queue_song(@house_of_the_rising_sun)
-  #   assert(@sixties_theme_room.song_queued?(@house_of_the_rising_sun))
-  # end
+  def test_can_queue_song()
+    @sixties_theme_room.queue_song(@house_of_the_rising_sun)
+    assert(@sixties_theme_room.song_queued?(@house_of_the_rising_sun))
+  end
 
 end

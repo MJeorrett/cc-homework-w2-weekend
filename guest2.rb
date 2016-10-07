@@ -1,6 +1,6 @@
 require_relative('record')
 
-class Guest < Record
+class Guest2 < Record
 
   attr_reader :first_name, :last_name
 
