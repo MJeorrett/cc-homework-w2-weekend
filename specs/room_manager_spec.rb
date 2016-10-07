@@ -3,7 +3,6 @@ require('minitest/rg')
 require_relative('../room_manager')
 require_relative('../room')
 require_relative('../guest')
-require_relative('../song')
 
 require('pry-byebug')
 
