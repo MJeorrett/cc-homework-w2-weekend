@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../room')
 require_relative('../song')
+require_relative('../guest')
 
 require('pry-byebug')
 
@@ -10,6 +11,8 @@ class RoomTest < MiniTest::Test
   def setup()
     @sixties_theme_room = Room.new("60s Sensations")
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
+    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
+    @mike_jones = Guest.new("Mike", "Jones")
   end
 
   def test_has_name()
@@ -25,14 +28,26 @@ class RoomTest < MiniTest::Test
   end
 
   def test_can_queue_song()
+    @sixties_theme_room.queue_song(@do_wah_diddy_diddy)
     @sixties_theme_room.queue_song(@house_of_the_rising_sun)
     assert(@sixties_theme_room.song_queued?(@house_of_the_rising_sun))
+  end
+
+  def test_queued_song_is_last()
+    @sixties_theme_room.queue_song(@do_wah_diddy_diddy)
+    @sixties_theme_room.queue_song(@house_of_the_rising_sun)
+    assert_equal(@house_of_the_rising_sun, @sixties_theme_room.queued_songs.last)
   end
 
   def test_can_dequeue_song()
     @sixties_theme_room.queue_song(@house_of_the_rising_sun)
     @sixties_theme_room.dequeue_song(@house_of_the_rising_sun)
     assert_equal(false, @sixties_theme_room.song_queued?(@house_of_the_rising_sun))
+  end
+
+  def test_can_add_guest()
+    @sixties_theme_room.add_guest(@mike_jones)
+    assert(@sixties_theme_room.has_guest?(@mike_jones))
   end
 
 end

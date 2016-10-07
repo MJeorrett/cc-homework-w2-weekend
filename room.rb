@@ -28,4 +28,12 @@ class Room < Record
     end
   end
 
+  def add_guest(guest)
+    @guests.push(guest)
+  end
+
+  def has_guest?(guest)
+    @guests.include?(guest)
+  end
+
 end
