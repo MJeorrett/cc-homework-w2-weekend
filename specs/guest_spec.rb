@@ -28,4 +28,8 @@ class GuestTest < MiniTest::Test
     assert_equal(expected, @mike_jones.date_of_birth())
   end
 
+  def test_age_correct()
+    assert_equal(29, @mike_jones.age)
+  end
+
 end
