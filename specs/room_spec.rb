@@ -26,9 +26,9 @@ class RoomTest < MiniTest::Test
     assert(@sixties_theme_room.song_queued?(@house_of_the_rising_sun))
   end
 
-  def test_can_de_queue_song()
+  def test_can_dequeue_song()
     @sixties_theme_room.queue_song(@house_of_the_rising_sun)
-    @sixties_theme_room.de_queue_song(@house_of_the_rising_sun)
+    @sixties_theme_room.dequeue_song(@house_of_the_rising_sun)
     assert_equal(false, @sixties_theme_room.song_queued?(@house_of_the_rising_sun))
   end
 

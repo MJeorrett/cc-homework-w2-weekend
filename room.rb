@@ -18,4 +18,12 @@ class Room < Record
     return @queued_songs.include?(song)
   end
 
+  def dequeue_song(song)
+    if song_queued?(song)
+      return @queued_songs.delete(song)
+    else
+      return false
+    end
+  end
+
 end
