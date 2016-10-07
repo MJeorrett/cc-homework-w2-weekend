@@ -3,6 +3,7 @@ require('minitest/rg')
 require_relative('../room_manager')
 require_relative('../room')
 require_relative('../guest')
+require_relative('../song')
 
 require('pry-byebug')
 
@@ -22,15 +23,6 @@ class RoomManagerTest < MiniTest::Test
     #songs
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
-
-    #guests
-    @mike_jones = Guest.new("Mike", "Jones")
-    @terry_marx = Guest.new("Terry", "Marx")
-    @sam_torrence = Guest.new("Sam", "Torrence")
-    @ben_james = Guest.new("Ben", "James")
-    @alan_cummings = Guest.new("Alan", "Cummings")
-    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett")
-    @alison_jeorrett = Guest.new("Alison", "Jeorrett")
   end
 
   def test_can_add_room()

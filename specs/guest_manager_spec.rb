@@ -8,13 +8,35 @@ require('pry-byebug')
 class GuestManagerTest < MiniTest::Test
 
   def setup()
+    @empty_guest_manager = GuestManager.new()
     @my_guest_manager = GuestManager.new()
-    @mark_jones = Guest.new("Mark", "Jones")
+
+    guest_names = [
+      ["Mike", "Jones"],
+      ["Terry", "Marx"],
+      ["Sam", "Torrence"],
+      ["Ben", "James"],
+      ["Alan", "Cummings"],
+      ["Catriona", "Jeorrett"],
+      ["Alison", "Jeorrett"]
+    ]
+
+    guest_names.each { |guest| @my_guest_manager.add_guest(guest[0], guest[1])}
   end
 
   def test_can_add_guest()
-    @my_guest_manager.add_guest("Mark", "Jones")
-    assert(@my_guest_manager.guests.include?(@mark_jones))
+    @empty_guest_manager.add_guest("Mark", "Jones")
+    mark_jones = Guest.new("Mark", "Jones", 0)
+    assert(@empty_guest_manager.guests.include?(mark_jones))
+  end
+
+  def test_guest_has_record()
+    mike_jones = Guest.new("Mike", "Jones", 0)
+    assert(@my_guest_manager.has_guest(mike_jones))
+  end
+
+  def test_guest_has_fixnum_id()
+    assert_equal(Fixnum, @my_guest_manager.guests[0].id.class)
   end
 
 end

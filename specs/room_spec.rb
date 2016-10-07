@@ -9,10 +9,15 @@ require('pry-byebug')
 class RoomTest < MiniTest::Test
 
   def setup()
+    # rooms
     @sixties_theme_room = Room.new("60s Sensations", 6)
+
+    # songs
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
-    @mike_jones = Guest.new("Mike", "Jones")
+
+    # guests
+    @mike_jones = Guest.new("Mike", "Jones", 0)
   end
 
   def test_has_name()
@@ -59,17 +64,17 @@ class RoomTest < MiniTest::Test
   end
 
   def test_space_capacity_updates()
-    @sixties_theme_room.add_guest(Guest.new("Mike", "Jones"))
+    @sixties_theme_room.add_guest(Guest.new("Mike", "Jones", 0))
     assert_equal(5, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Terry", "Marx"))
+    @sixties_theme_room.add_guest(Guest.new("Terry", "Marx", 1))
     assert_equal(4, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Matthew", "Jeorrett"))
+    @sixties_theme_room.add_guest(Guest.new("Matthew", "Jeorrett", 2))
     assert_equal(3, @sixties_theme_room.spare_capacity)
   end
 
   def test_cant_add_guest_if_room_full()
     for count in (1..6)
-      @sixties_theme_room.add_guest(Guest.new("FirstName #{count}", "LastName #{count}"))
+      @sixties_theme_room.add_guest(Guest.new("FirstName #{count}", "LastName #{count}", count))
     end
 
     assert_equal(false, @sixties_theme_room.add_guest(@mike_jones))
