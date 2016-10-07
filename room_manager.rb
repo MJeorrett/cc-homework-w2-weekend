@@ -6,8 +6,8 @@ class RoomManager
     @rooms = []
   end
 
-  def add_room_with_name(room_name)
-    new_room = Room.new(room_name)
+  def add_room(room_name, capacity)
+    new_room = Room.new(room_name, capacity)
     @rooms.push(new_room)
   end
 

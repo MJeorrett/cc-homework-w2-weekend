@@ -10,10 +10,14 @@ require('pry-byebug')
 class RoomManagerTest < MiniTest::Test
 
   def setup()
+    @empty_room_manager = RoomManager.new()
     @my_room_manager = RoomManager.new()
+    @my_room_manager.add_room("70s Magic", 6)
+    @my_room_manager.add_room("80s Beats", 10)
+    @my_room_manager.add_room("90s Classics", 15)
 
     # rooms
-    @sixties_theme_room = Room.new("60s Sensations")
+    @sixties_theme_room = Room.new("60s Sensations", 8)
 
     #songs
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
@@ -24,8 +28,13 @@ class RoomManagerTest < MiniTest::Test
   end
 
   def test_can_add_room()
-    @my_room_manager.add_room_with_name("60s Sensations")
-    assert(@my_room_manager.rooms.include?(@sixties_theme_room))
+    @empty_room_manager.add_room("60s Sensations", 8)
+    assert(@empty_room_manager.rooms.include?(@sixties_theme_room))
+  end
+
+  def test_get_room_names()
+    expected = ["70s Magic", "80s Beats", "90s Classics"]
+    assert_equal(expected, @my_room_manager.room_names())
   end
 
 end
