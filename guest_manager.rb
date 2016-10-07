@@ -8,8 +8,9 @@ class GuestManager
     @guests = []
   end
 
-  def add_guest(first_name, last_name)
-    new_guest = Guest.new(first_name, last_name)
+  def add_guest(first_name, last_name, birth_year, birth_month, birth_day)
+    birthday = Date.new(birth_year, birth_month, birth_day)
+    new_guest = Guest.new(first_name, last_name, birthday)
     @guests.push(new_guest)
   end
 
