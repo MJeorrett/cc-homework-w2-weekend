@@ -5,7 +5,7 @@ require_relative('../guest2')
 
 require('pry-byebug')
 
-class RecordSpec < MiniTest::Test
+class RecordTest < MiniTest::Test
 
   def setup()
     @guest_joe_elder = Guest.new("Joe", "Elder")
