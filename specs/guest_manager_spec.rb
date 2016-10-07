@@ -26,17 +26,13 @@ class GuestManagerTest < MiniTest::Test
 
   def test_can_add_guest()
     @empty_guest_manager.add_guest("Mark", "Jones")
-    mark_jones = Guest.new("Mark", "Jones", 0)
+    mark_jones = Guest.new("Mark", "Jones")
     assert(@empty_guest_manager.guests.include?(mark_jones))
   end
 
   def test_guest_has_record()
-    mike_jones = Guest.new("Mike", "Jones", 0)
+    mike_jones = Guest.new("Mike", "Jones")
     assert(@my_guest_manager.has_guest(mike_jones))
-  end
-
-  def test_guest_has_fixnum_id()
-    assert_equal(Fixnum, @my_guest_manager.guests[0].id.class)
   end
 
 end

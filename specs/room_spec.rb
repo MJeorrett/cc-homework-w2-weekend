@@ -17,7 +17,7 @@ class RoomTest < MiniTest::Test
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
 
     # guests
-    @mike_jones = Guest.new("Mike", "Jones", 0)
+    @mike_jones = Guest.new("Mike", "Jones")
   end
 
   def test_has_name()
@@ -64,17 +64,17 @@ class RoomTest < MiniTest::Test
   end
 
   def test_space_capacity_updates()
-    @sixties_theme_room.add_guest(Guest.new("Mike", "Jones", 0))
+    @sixties_theme_room.add_guest(Guest.new("Mike", "Jones"))
     assert_equal(5, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Terry", "Marx", 1))
+    @sixties_theme_room.add_guest(Guest.new("Terry", "Marx"))
     assert_equal(4, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Matthew", "Jeorrett", 2))
+    @sixties_theme_room.add_guest(Guest.new("Matthew", "Jeorrett"))
     assert_equal(3, @sixties_theme_room.spare_capacity)
   end
 
   def test_cant_add_guest_if_room_full()
     for count in (1..6)
-      @sixties_theme_room.add_guest(Guest.new("FirstName #{count}", "LastName #{count}", count))
+      @sixties_theme_room.add_guest(Guest.new("FirstName #{count}", "LastName #{count}"))
     end
 
     assert_equal(false, @sixties_theme_room.add_guest(@mike_jones))
