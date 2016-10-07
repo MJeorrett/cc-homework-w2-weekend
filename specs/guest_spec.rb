@@ -1,11 +1,14 @@
 require('minitest/autorun')
 require('minitest/rg')
+
 require_relative('../guest')
+
+require('date')
 
 class GuestTest < MiniTest::Test
 
   def setup()
-    @mike_jones = Guest.new("Mike", "Jones")
+    @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30))
   end
 
   def test_guest_has_first_name()
@@ -18,6 +21,11 @@ class GuestTest < MiniTest::Test
 
   def test_guest_has_full_name()
     assert_equal("Mike Jones", @mike_jones.full_name)
+  end
+
+  def test_guest_has_date_of_birth()
+    expected = Date.new(1986, 10, 30)
+    assert_equal(expected, @mike_jones.date_of_birth())
   end
 
 end
