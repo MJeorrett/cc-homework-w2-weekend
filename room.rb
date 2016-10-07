@@ -38,6 +38,14 @@ class Room < Record
     end
   end
 
+  def remove_guest(guest)
+    if has_guest?(guest)
+      return @guests.delete(guest)
+    else
+      return false
+    end
+  end
+
   def has_guest?(guest)
     @guests.include?(guest)
   end

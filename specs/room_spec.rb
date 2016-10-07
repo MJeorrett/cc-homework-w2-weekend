@@ -11,13 +11,25 @@ class RoomTest < MiniTest::Test
   def setup()
     # rooms
     @sixties_theme_room = Room.new("60s Sensations", 6)
+    @full_room = Room.new("70s Party", 4)
 
     # songs
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964)
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964)
 
     # guests
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1967, 2, 5))
+    @mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24))
+    @terry_marx = Guest.new("Terry", "Marx", Date.new(1992, 3, 1))
+    @sam_torrence = Guest.new("Sam", "Torrence", Date.new(1996, 1, 2))
+    @ben_james = Guest.new("Ben", "James", Date.new(1987, 12, 2))
+    @alan_cummings = Guest.new("Alan", "Cummings", Date.new(1979, 5, 12))
+    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett", Date.new(1945, 9, 4))
+    @alison_jeorrett = Guest.new("Alison", "Jeorrett", Date.new(1954, 5, 29))
+
+    @full_room.add_guest(@mike_jones)
+    @full_room.add_guest(@terry_marx)
+    @full_room.add_guest(@sam_torrence)
+    @full_room.add_guest(@ben_james)
   end
 
   def test_has_name()
@@ -64,22 +76,24 @@ class RoomTest < MiniTest::Test
   end
 
   def test_space_capacity_updates()
-    @sixties_theme_room.add_guest(Guest.new("Mike", "Jones", Date.new(1945, 10, 12)))
+    @sixties_theme_room.add_guest(@mike_jones)
     assert_equal(5, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Terry", "Marx", Date.new(1992, 12, 20)))
+    @sixties_theme_room.add_guest(@terry_marx)
     assert_equal(4, @sixties_theme_room.spare_capacity)
-    @sixties_theme_room.add_guest(Guest.new("Matthew", "Jeorrett", Date.new(1986, 10, 30)))
+    @sixties_theme_room.add_guest(@sam_torrence)
     assert_equal(3, @sixties_theme_room.spare_capacity)
   end
 
   def test_cant_add_guest_if_room_full()
-    for count in (1..6)
-      @sixties_theme_room.add_guest(Guest.new("FirstName #{count}", "LastName #{count}", Date.new(1925, 12, 18)))
-    end
+    assert_equal(false, @full_room.add_guest(@alan_cummings))
+    assert_equal(4, @full_room.guests().count())
+    assert_equal(false, @full_room.has_guest?(@alan_cummings))
+  end
 
-    assert_equal(false, @sixties_theme_room.add_guest(@mike_jones))
-    assert_equal(6, @sixties_theme_room.guests().count())
-    assert_equal(false, @sixties_theme_room.has_guest?(@mike_jones))
+  def test_can_remove_guest()
+    @full_room.remove_guest(@mike_jones)
+    assert_equal(3, @full_room.guests().count())
+    assert_equal(false, @full_room.has_guest?(@mike_jones))
   end
 
 end
