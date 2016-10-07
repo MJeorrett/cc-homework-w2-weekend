@@ -52,8 +52,4 @@ class RoomManagerTest < MiniTest::Test
     assert_equal(1, number_of_70s_magic_rooms)
   end
 
-  def can_add_guest()
-
-  end
-
 end
