@@ -1,2 +1,6 @@
 gist link:
 https://gist.github.com/Vismajor/edeae9fbe41e06f5a7b58b7b182ae360
+
+
+ToDo
+- Deal with deleting duplicate songs, at the moment all songs with the name and title are deleted.

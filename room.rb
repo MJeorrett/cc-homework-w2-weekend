@@ -37,4 +37,8 @@ class Room < Record
     @guests.include?(guest)
   end
 
+  def spare_capacity()
+    return @capacity - @guests.length()
+  end
+
 end

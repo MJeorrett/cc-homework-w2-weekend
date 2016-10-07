@@ -54,4 +54,8 @@ class RoomTest < MiniTest::Test
     assert_equal(6, @sixties_theme_room.capacity())
   end
 
+  def test_spare_capacity_initial()
+    assert_equal(6, @sixties_theme_room.spare_capacity())
+  end
+
 end
