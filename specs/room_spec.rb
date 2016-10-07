@@ -3,10 +3,13 @@ require('minitest/rg')
 require_relative('../room')
 require_relative('../song')
 
+require('pry-byebug')
+
 class RoomTest < MiniTest::Test
 
   def setup()
     @sixties_theme_room = Room.new("60s Sensations")
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
   end
 
   def test_has_name()

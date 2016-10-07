@@ -1,5 +1,7 @@
 require_relative('record')
 
+require('pry-byebug')
+
 class Room < Record
 
   attr_reader :name, :queued_songs, :guests
