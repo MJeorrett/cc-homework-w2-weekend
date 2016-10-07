@@ -9,7 +9,7 @@ require('pry-byebug')
 class RoomTest < MiniTest::Test
 
   def setup()
-    @sixties_theme_room = Room.new("60s Sensations")
+    @sixties_theme_room = Room.new("60s Sensations", 6)
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
     @mike_jones = Guest.new("Mike", "Jones")
@@ -48,6 +48,10 @@ class RoomTest < MiniTest::Test
   def test_can_add_guest()
     @sixties_theme_room.add_guest(@mike_jones)
     assert(@sixties_theme_room.has_guest?(@mike_jones))
+  end
+
+  def test_has_capactiy()
+    assert_equal(6, @sixties_theme_room.capacity())
   end
 
 end

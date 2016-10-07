@@ -4,10 +4,11 @@ require('pry-byebug')
 
 class Room < Record
 
-  attr_reader :name, :queued_songs, :guests
+  attr_reader :name, :capacity, :queued_songs, :guests
 
-  def initialize(name)
+  def initialize(name, capacity)
     @name = name
+    @capacity = capacity
     @queued_songs = []
     @guests = []
   end
