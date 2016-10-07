@@ -8,11 +8,11 @@ require('pry-byebug')
 class RecordTest < MiniTest::Test
 
   def setup()
-    @song_joe_elder = Song.new("Joe", "Elder")
-    @song_joe_danger_1 = Song.new("Joe", "Danger")
-    @song_joe_danger_2 = Song.new("Joe", "Danger")
+    @song_joe_elder = Song.new("Joe", "Elder", 1982)
+    @song_joe_danger_1 = Song.new("Joe", "Danger", 1999)
+    @song_joe_danger_2 = Song.new("Joe", "Danger", 1999)
 
-    @song2_joe_danger = Song2.new("Joe", "Danger")
+    @song2_joe_danger = Song2.new("Joe", "Danger", 1999)
   end
 
   # '==' tests

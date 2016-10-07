@@ -13,8 +13,8 @@ class RoomTest < MiniTest::Test
     @sixties_theme_room = Room.new("60s Sensations", 6)
 
     # songs
-    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals")
-    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann")
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964)
+    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964)
 
     # guests
     @mike_jones = Guest.new("Mike", "Jones", Date.new(1967, 2, 5))
