@@ -11,6 +11,7 @@ class RoomManagerTest < MiniTest::Test
 
   def setup()
     @empty_room_manager = RoomManager.new()
+
     @my_room_manager = RoomManager.new()
     @my_room_manager.add_room("70s Magic", 6)
     @my_room_manager.add_room("80s Beats", 10)
@@ -25,6 +26,12 @@ class RoomManagerTest < MiniTest::Test
 
     #guests
     @mike_jones = Guest.new("Mike", "Jones")
+    @terry_marx = Guest.new("Terry", "Marx")
+    @sam_torrence = Guest.new("Sam", "Torrence")
+    @ben_james = Guest.new("Ben", "James")
+    @alan_cummings = Guest.new("Alan", "Cummings")
+    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett")
+    @alison_jeorrett = Guest.new("Alison", "Jeorrett")
   end
 
   def test_can_add_room()
@@ -35,6 +42,10 @@ class RoomManagerTest < MiniTest::Test
   def test_get_room_names()
     expected = ["70s Magic", "80s Beats", "90s Classics"]
     assert_equal(expected, @my_room_manager.room_names())
+  end
+
+  def test_cant_duplicate_room_names()
+    assert_equal(false, @my_room_manager.add_room("70s Magic", 8))
   end
 
 end
