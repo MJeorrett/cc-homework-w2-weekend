@@ -1,4 +1,6 @@
-class Room
+require_relative('record')
+
+class Room < Record
 
   attr_reader :name, :queued_songs, :guests
 
@@ -13,7 +15,7 @@ class Room
   end
 
   def song_queued?(song)
-    
+    return @queued_songs.include?(song)
   end
 
 end
