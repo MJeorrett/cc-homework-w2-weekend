@@ -46,6 +46,14 @@ class RoomManagerTest < MiniTest::Test
 
   def test_cant_duplicate_room_names()
     assert_equal(false, @my_room_manager.add_room("70s Magic", 8))
+    number_of_70s_magic_rooms = @my_room_manager.rooms.count do |room|
+      room.name() == "70s Magic"
+    end
+    assert_equal(1, number_of_70s_magic_rooms)
+  end
+
+  def can_add_guest()
+
   end
 
 end
