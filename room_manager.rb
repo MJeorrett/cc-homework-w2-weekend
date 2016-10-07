@@ -11,4 +11,10 @@ class RoomManager
     @rooms.push(new_room)
   end
 
+  def room_names()
+    return @rooms.map do |room|
+      room.name
+    end
+  end
+
 end
