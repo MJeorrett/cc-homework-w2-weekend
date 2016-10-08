@@ -50,4 +50,13 @@ class RoomManagerTest < MiniTest::Test
     assert_equal(false, @my_room_manager.rooms.include?(seventies_magic))
   end
 
+  def test_can_save_then_load_rooms()
+    @my_room_manager.save_rooms()
+    @my_room_manager.remove_room("70s Magic")
+    @my_room_manager.load_rooms()
+    seventies_magic = Room.new("70s Magic", 6)
+    assert_equal(3, @my_room_manager.rooms().count())
+    assert(@my_room_manager.rooms().include?(seventies_magic))
+  end
+
 end

@@ -1,3 +1,5 @@
+require('yaml')
+
 class RoomManager
 
   attr_reader :rooms
@@ -36,6 +38,16 @@ class RoomManager
     else
       return false
     end
+  end
+
+  def save_rooms()
+    File.open("data/rooms.txt", 'w') do |file|
+      file.write(@rooms.to_yaml)
+    end
+  end
+
+  def load_rooms()
+    @rooms = YAML::load(File.read("data/rooms.txt"))
   end
 
 end
