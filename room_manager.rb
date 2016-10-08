@@ -22,4 +22,20 @@ class RoomManager
     end
   end
 
+  def remove_room(room_name)
+    room_to_delete = nil
+    @rooms.each do |room|
+      if room.name == room_name
+        room_to_delete = room
+      end
+    end
+
+    if room_to_delete
+      @rooms.delete(room_to_delete)
+      return room_to_delete
+    else
+      return false
+    end
+  end
+
 end
