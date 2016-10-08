@@ -1,4 +1,4 @@
-require_relative('record')
+require_relative('../record')
 
 class Song2 < Record
 
