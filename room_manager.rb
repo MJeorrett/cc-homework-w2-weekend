@@ -1,11 +1,13 @@
-require('yaml')
+require_relative('yaml_load_save')
 
 class RoomManager
+
+  SAVE_FILE_NAME = "data/rooms.txt"
 
   attr_reader :rooms
 
   def initialize()
-    @rooms = []
+    load_rooms()
   end
 
   def add_room(room_name, capacity)
@@ -16,6 +18,8 @@ class RoomManager
       @rooms.push(new_room)
       return new_room
     end
+
+    save_rooms()
   end
 
   def room_names()
@@ -38,16 +42,16 @@ class RoomManager
     else
       return false
     end
+
+    save_rooms()
   end
 
   def save_rooms()
-    File.open("data/rooms.txt", 'w') do |file|
-      file.write(@rooms.to_yaml)
-    end
+    YamlLoadSave::save(SAVE_FILE_NAME, @rooms)
   end
 
   def load_rooms()
-    @rooms = YAML::load(File.read("data/rooms.txt"))
+    @rooms = YamlLoadSave::load(SAVE_FILE_NAME)
   end
 
 end
