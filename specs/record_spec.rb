@@ -1,7 +1,7 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../song')
-require_relative('../song2')
+require_relative('../testing_classes/song2')
 
 require('pry-byebug')
 
