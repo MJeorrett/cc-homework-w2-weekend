@@ -37,4 +37,13 @@ class GuestManagerTest < MiniTest::Test
     assert(@my_guest_manager.has_guest(mike_jones))
   end
 
+  def test_can_save_then_load()
+    @my_guest_manager.save_guests()
+    @my_guest_manager.add_guest("Tom", "Cat", 2001, 9, 23)
+    @my_guest_manager.load_guests()
+    tom_cat = Guest.new("Tom", "Cat", Date.new(2001, 9, 23))
+    assert_equal(7, @my_guest_manager.guests().count())
+    assert_equal(false, @my_guest_manager.guests().include?(tom_cat))
+  end
+
 end
