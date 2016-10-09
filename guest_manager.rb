@@ -18,6 +18,7 @@ class GuestManager
       return false
     else
       @guests.push(new_guest)
+      return new_guest
     end
   end
 
