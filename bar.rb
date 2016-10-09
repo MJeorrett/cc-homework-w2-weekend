@@ -10,4 +10,9 @@ class Bar
     @queue.push(guest)
   end
 
+  def sell_drink()
+    first_guest = @queue.shift()
+    first_guest.leave_bar() if first_guest
+  end
+
 end

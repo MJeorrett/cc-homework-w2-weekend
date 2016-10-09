@@ -2,13 +2,14 @@ require_relative('record')
 
 class Guest < Record
 
-  attr_reader :first_name, :last_name, :date_of_birth, :confidence
+  attr_reader :first_name, :last_name, :date_of_birth, :confidence, :at_bar
 
   def initialize(params)
     @first_name = params[:first_name]
     @last_name = params[:last_name]
     @date_of_birth = params[:date_of_birth]
     @confidence = params[:confidence].to_f
+    @at_bar = false
   end
 
   def full_name()
@@ -36,6 +37,10 @@ class Guest < Record
   def desire_to_sing(song)
     turned_16_offset = (song.release_year() - year_turned_16()).abs
     return 100 - turned_16_offset + confidence
+  end
+
+  def leave_bar()
+    at_bar = false
   end
 
 end
