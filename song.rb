@@ -9,6 +9,8 @@ class Song < Record
     @title = title
     @artist = artist
     @release_year = release_year
+
+    raise "lyrics argument is not an Array as expected" if lyrics.class != Array
     @lyrics = lyrics
 
   end

@@ -8,11 +8,11 @@ require('pry-byebug')
 class RecordTest < MiniTest::Test
 
   def setup()
-    @song_happy_birthday = Song.new("Happy Birthday", "Unknown", 1921, "Happy Birthday to you...")
-    @song_unhappy_birthday_1 = Song.new("Unhappy Birthday", "Unknown", 1921, "Happy Birthday to you...")
-    @song_unhappy_birthday_2 = Song.new("Unhappy Birthday", "Unknown", 1921, "Happy Birthday to you...")
+    @song_happy_birthday = Song.new("Happy Birthday", "Unknown", 1921, ["Happy Birthday to you..."])
+    @song_unhappy_birthday_1 = Song.new("Unhappy Birthday", "Unknown", 1921, ["Happy Birthday to you..."])
+    @song_unhappy_birthday_2 = Song.new("Unhappy Birthday", "Unknown", 1921, ["Happy Birthday to you..."])
 
-    @song2_unhappy_birthday = Song2.new("Unhappy Birthday", "Unknown", 1921, "Happy Birthday to you...")
+    @song2_unhappy_birthday = Song2.new("Unhappy Birthday", "Unknown", 1921, ["Happy Birthday to you..."])
   end
 
   # '==' tests

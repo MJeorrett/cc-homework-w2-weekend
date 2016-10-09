@@ -5,7 +5,7 @@ require_relative('../song')
 class SongTest < MiniTest::Test
 
   def setup
-    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964, "At the house of the rising sun strange stuff happens")
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964, ["At the house of the rising sun", "strange stuff happens"])
   end
 
   def test_has_title()
@@ -21,7 +21,7 @@ class SongTest < MiniTest::Test
   end
 
   def test_song_has_lyrics()
-    expected = "At the house of the rising sun strange stuff happens"
+    expected = ["At the house of the rising sun", "strange stuff happens"]
     assert_equal(expected, @house_of_the_rising_sun.lyrics)
   end
 
