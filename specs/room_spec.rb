@@ -121,16 +121,16 @@ class RoomTest < MiniTest::Test
     assert_equal("rising sun lyrics", @full_room.current_line())
   end
 
-#   def test_get_description()
-#     @full_room.remove_guest(@mike_jones)
-#     expected = "70s Party Room
-# playing: Do Wah
-# current line: There she was just a-walkin' down the street, singin' \"Do wah diddy diddy dum diddy do\"
-# guests:
-#   Terry Marx(2008, 3)
-#   Sam Torrence(2012, 18)
-#   Ben James(2013, 13)"
-#     assert_equal(expected, @full_room.get_description())
-#   end
+  def test_get_description()
+    @full_room.remove_guest(@mike_jones)
+    expected = "70s Party Room
+playing: Do Wah
+current line: 'song lyrics'
+guests:
+  Terry Marx(2008, 3.0)
+  Sam Torrence(2012, 18.0)
+  Ben James(2003, 13.0)"
+    assert_equal(expected, @full_room.get_description())
+  end
 
 end

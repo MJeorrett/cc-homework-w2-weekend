@@ -71,8 +71,15 @@ class Room < Record
     end
   end
 
-#   def get_description()
-#     description = "#{name} Room
-# playing: #{}"
+  def get_description()
+    description = "#{name} Room
+playing: #{currently_playing()}
+current line: '#{current_line()}'
+guests:
+"
+    guest_string = @guests.map { |guest| "  " + guest.get_description() }
+
+    return description + guest_string.join("\n")
+  end
 
 end

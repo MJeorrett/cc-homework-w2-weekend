@@ -47,4 +47,8 @@ class GuestTest < MiniTest::Test
     assert_equal(97, @mike_jones.desire_to_sing(@house_of_the_rising_sun))
   end
 
+  def test_get_description()
+    assert_equal("Mike Jones(2002, 9.0)", @mike_jones.get_description)
+  end
+
 end

@@ -47,4 +47,8 @@ class Guest < Record
     @confidence += amount
   end
 
+  def get_description()
+    return "#{full_name()}(#{year_turned_16()}, #{@confidence.round(1)})"
+  end
+
 end

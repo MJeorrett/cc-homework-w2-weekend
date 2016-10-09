@@ -47,4 +47,10 @@ class BarTest < MiniTest::Test
     assert(3, @bar.queue_size())
   end
 
+  def test_get_description()
+    expected = "BAR CARAOKE
+queue: Mike Jones(2015, 15.0), Terry Marx(2008, 3.0), Sam Torrence(2012, 18.0)"
+    assert_equal(expected, @bar.get_description())
+  end
+
 end
