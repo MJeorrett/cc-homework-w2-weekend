@@ -14,8 +14,8 @@ class RoomTest < MiniTest::Test
     @full_room = Room.new("70s Party", 4)
 
     # songs
-    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964, ["song lyrics"])
-    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["song lyrics"])
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964, ["rising sun lyrics", "more rising sun lyrics"])
+    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["song lyrics", "more song lyrics", "even more song lyrics"])
 
     # guests
     @mike_jones = Guest.new(first_name: "Mike", last_name: "Jones", date_of_birth: Date.new(1999, 2, 24), confidence: 15)
@@ -100,6 +100,25 @@ class RoomTest < MiniTest::Test
 
   def test_currently_playing()
     assert("Do Wah", @full_room.currently_playing())
+  end
+
+  def test_current_line_initialises_ok()
+    assert_equal("song lyrics", @full_room.current_line())
+  end
+
+  def test_can_next_line()
+    @full_room.next_line()
+    assert_equal("more song lyrics", @full_room.current_line())
+    @full_room.next_line()
+    assert_equal("even more song lyrics", @full_room.current_line())
+  end
+
+  def test_progresses_to_next_song()
+    3.times do
+      @full_room.next_line()
+    end
+    assert_equal("House of the Rising Sun", @full_room.currently_playing())
+    assert_equal("rising sun lyrics", @full_room.current_line())
   end
 
 #   def test_get_description()

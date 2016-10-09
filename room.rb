@@ -11,6 +11,7 @@ class Room < Record
     @capacity = capacity
     @queued_songs = []
     @guests = []
+    @current_line_number = 0
   end
 
   def queue_song(song)
@@ -56,6 +57,18 @@ class Room < Record
 
   def currently_playing()
     return @queued_songs.first().title
+  end
+
+  def current_line()
+    return @queued_songs.first.lyrics()[@current_line_number]
+  end
+
+  def next_line()
+    @current_line_number += 1
+    if @current_line_number >= @queued_songs.first().lyrics().length()
+      @current_line_number = 0
+      @queued_songs.shift()
+    end
   end
 
 #   def get_description()
