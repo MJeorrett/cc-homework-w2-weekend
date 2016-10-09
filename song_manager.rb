@@ -9,14 +9,16 @@ class SongManager
       @songs = []
       Dir[songs_directory + "/*.txt"].each() do |song_file_name|
 
-        file_lines = File.open(song_file_name).read.lines
-
+        file_data = File.open(song_file_name).read
+        file_lines = file_data.lines
         title = remove_label(file_lines[0])
         artist = remove_label(file_lines[1])
         release_year = remove_label(file_lines[2]).to_i
         lyrics = file_lines[4..-1]
 
-        lyrics.each { |line| line.chomp! }
+        lyrics.each do |line|
+          line.strip!
+        end
 
         new_song = Song.new(title, artist, release_year, lyrics)
         @songs.push(new_song)
