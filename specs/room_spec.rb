@@ -18,13 +18,13 @@ class RoomTest < MiniTest::Test
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["song lyrics"])
 
     # guests
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24), 15)
-    @terry_marx = Guest.new("Terry", "Marx", Date.new(1992, 3, 1), 3)
-    @sam_torrence = Guest.new("Sam", "Torrence", Date.new(1996, 1, 2), 18)
-    @ben_james = Guest.new("Ben", "James", Date.new(1987, 12, 2), 13)
-    @alan_cummings = Guest.new("Alan", "Cummings", Date.new(1979, 5, 12), 8)
-    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett", Date.new(1945, 9, 4), 10)
-    @alison_jeorrett = Guest.new("Alison", "Jeorrett", Date.new(1954, 5, 29), 20)
+    @mike_jones = Guest.new(first_name: "Mike", last_name: "Jones", date_of_birth: Date.new(1999, 2, 24), confidence: 15)
+    @terry_marx = Guest.new(first_name: "Terry", last_name: "Marx", date_of_birth: Date.new(1992, 3, 1), confidence: 3)
+    @sam_torrence = Guest.new(first_name: "Sam", last_name: "Torrence", date_of_birth: Date.new(1996, 1, 2), confidence: 18)
+    @ben_james = Guest.new(first_name: "Ben", last_name: "James", date_of_birth: Date.new(1987, 12, 2), confidence: 13)
+    @alan_cummings = Guest.new(first_name: "Alan", last_name: "Cummings", date_of_birth: Date.new(1979, 5, 12), confidence: 8)
+    @catriona_jeorrett = Guest.new(first_name: "Catriona", last_name: "Jeorrett", date_of_birth: Date.new(1945, 9, 4), confidence: 10)
+    @alison_jeorrett = Guest.new(first_name: "Alison", last_name: "Jeorrett", date_of_birth: Date.new(1954, 5, 29), confidence: 20)
 
     @full_room.add_guest(@mike_jones)
     @full_room.add_guest(@terry_marx)

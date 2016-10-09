@@ -9,7 +9,7 @@ require('date')
 class GuestTest < MiniTest::Test
 
   def setup()
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30), 9)
+    @mike_jones = Guest.new(first_name: "Mike", last_name: "Jones", date_of_birth: Date.new(1986, 10, 30), confidence: 9)
 
     @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1990, ["At the house of the rising sun", "strange stuff happens"])
   end

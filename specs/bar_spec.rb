@@ -10,7 +10,7 @@ class BarTest < MiniTest::Test
   def setup()
     @bar = Bar.new()
 
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30), 9)
+    @mike_jones = Guest.new(first_name:"Mike", last_name: "Jones", date_of_birth: Date.new(1986, 10, 30), confidence: 9)
   end
 
   def test_bar_has_queue()
