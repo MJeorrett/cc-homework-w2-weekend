@@ -32,4 +32,8 @@ class GuestTest < MiniTest::Test
     assert_equal(29, @mike_jones.age)
   end
 
+  def test_year_turned_16()
+    assert_equal(2002, @mike_jones.year_turned_16())
+  end
+
 end

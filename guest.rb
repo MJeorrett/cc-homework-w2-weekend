@@ -28,4 +28,8 @@ class Guest < Record
     return year_difference - subtract_year
   end
 
+  def year_turned_16()
+    return @date_of_birth.year + 16
+  end
+
 end
