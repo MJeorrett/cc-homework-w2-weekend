@@ -43,4 +43,8 @@ class Guest < Record
     at_bar = false
   end
 
+  def boost_confidence(amount)
+    @confidence += amount
+  end
+
 end

@@ -12,6 +12,7 @@ class Bar
 
   def sell_drink()
     first_guest = @queue.shift()
+    first_guest.boost_confidence(1 + (rand * 2))
     first_guest.leave_bar() if first_guest
   end
 

@@ -31,16 +31,16 @@ class BarTest < MiniTest::Test
 
   def test_can_add_guest_to_queue()
     @bar.add_guest(@mike_jones)
-    assert(@bar.queue.include?(@mike_jones))
-    assert(@mike_jones.at_bar())
+    assert(@bar.queue.include?(@mike_jones), "Queue does not include Mike Jones")
   end
 
   def test_can_sell_drink()
     initial_confidence = @mike_jones.confidence()
     @bar.sell_drink()
     assert_equal(false, @bar.queue.include?(@mike_jones))
-    assert(@mike_jones.confidence > initial_confidence)
-    assert(@mike_jones.confidence <= initial_confidence + 3)
+    assert(@mike_jones.confidence >= initial_confidence + 1, "Confidence should increase by at lease 1")
+    assert(@mike_jones.confidence <= initial_confidence + 3, "Confidence should not increase by more than 3")
+    assert(!@mike_jones.at_bar(), ".at_bar status should be false")
   end
 
 end
