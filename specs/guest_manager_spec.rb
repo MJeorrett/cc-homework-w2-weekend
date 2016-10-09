@@ -32,6 +32,14 @@ class GuestManagerTest < MiniTest::Test
     assert(@empty_guest_manager.guests.include?(mark_jones))
   end
 
+  def test_cant_duplicate_guest_details()
+    assert_equal(false, @my_guest_manager.add_guest("Terry", "Marx", 1992, 3, 1))
+    number_of_terry_marxes = @my_guest_manager.guests().count do |guest|
+      guest.full_name == "Terry Marx"
+    end
+    assert_equal(1, number_of_terry_marxes)
+  end
+
   def test_has_guest()
     mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24))
     assert(@my_guest_manager.has_guest(mike_jones))

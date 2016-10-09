@@ -15,9 +15,12 @@ class GuestManager
   def add_guest(first_name, last_name, birth_year, birth_month, birth_day)
     birthday = Date.new(birth_year, birth_month, birth_day)
     new_guest = Guest.new(first_name, last_name, birthday)
-    @guests.push(new_guest)
-
-    save_guests()
+    if has_guest(new_guest)
+      return false
+    else
+      @guests.push(new_guest)
+      save_guests()
+    end
   end
 
   def has_guest(guest)
