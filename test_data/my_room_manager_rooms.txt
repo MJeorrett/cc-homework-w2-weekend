@@ -1,0 +1,16 @@
+---
+- !ruby/object:Room
+  name: 70s Magic
+  capacity: 6
+  queued_songs: []
+  guests: []
+- !ruby/object:Room
+  name: 80s Beats
+  capacity: 10
+  queued_songs: []
+  guests: []
+- !ruby/object:Room
+  name: 90s Classics
+  capacity: 15
+  queued_songs: []
+  guests: []

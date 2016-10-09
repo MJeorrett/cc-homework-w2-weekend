@@ -10,9 +10,9 @@ require('pry-byebug')
 class RoomManagerTest < MiniTest::Test
 
   def setup()
-    @empty_room_manager = RoomManager.new()
+    @empty_room_manager = RoomManager.new("test_data/empty_room_manager_rooms.txt")
 
-    @my_room_manager = RoomManager.new()
+    @my_room_manager = RoomManager.new("test_data/my_room_manager_rooms.txt")
     @my_room_manager.add_room("70s Magic", 6)
     @my_room_manager.add_room("80s Beats", 10)
     @my_room_manager.add_room("90s Classics", 15)
@@ -21,8 +21,8 @@ class RoomManagerTest < MiniTest::Test
     @sixties_theme_room = Room.new("60s Sensations", 8)
 
     #songs
-    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals",  1964)
-    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964)
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals",  1964, ["The lyrics for this song"])
+    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["The lyrics for this song"])
   end
 
   def test_can_add_room()

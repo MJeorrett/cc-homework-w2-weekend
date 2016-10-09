@@ -8,8 +8,8 @@ require('pry-byebug')
 class GuestManagerTest < MiniTest::Test
 
   def setup()
-    @empty_guest_manager = GuestManager.new()
-    @my_guest_manager = GuestManager.new()
+    @empty_guest_manager = GuestManager.new("test_data/empty_guest_manager_guests.txt")
+    @my_guest_manager = GuestManager.new("test_data/my_guest_manager_guests.txt")
 
     guest_names = [
       ["Mike", "Jones", 1999, 2, 24],
@@ -50,8 +50,8 @@ class GuestManagerTest < MiniTest::Test
     @my_guest_manager.add_guest("Tom", "Cat", 2001, 9, 23)
     @my_guest_manager.load_guests()
     tom_cat = Guest.new("Tom", "Cat", Date.new(2001, 9, 23))
-    assert_equal(7, @my_guest_manager.guests().count())
     assert_equal(false, @my_guest_manager.guests().include?(tom_cat))
+    assert_equal(7, @my_guest_manager.guests().count())
   end
 
 end

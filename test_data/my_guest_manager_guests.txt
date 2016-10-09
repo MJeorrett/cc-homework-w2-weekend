@@ -1,0 +1,29 @@
+---
+- !ruby/object:Guest
+  first_name: Mike
+  last_name: Jones
+  date_of_birth: 1999-02-24
+- !ruby/object:Guest
+  first_name: Terry
+  last_name: Marx
+  date_of_birth: 1992-03-01
+- !ruby/object:Guest
+  first_name: Sam
+  last_name: Torrence
+  date_of_birth: 1996-01-02
+- !ruby/object:Guest
+  first_name: Ben
+  last_name: James
+  date_of_birth: 1987-12-02
+- !ruby/object:Guest
+  first_name: Alan
+  last_name: Cummings
+  date_of_birth: 1979-05-12
+- !ruby/object:Guest
+  first_name: Catriona
+  last_name: Jeorrett
+  date_of_birth: 1945-09-04
+- !ruby/object:Guest
+  first_name: Alison
+  last_name: Jeorrett
+  date_of_birth: 1954-05-29

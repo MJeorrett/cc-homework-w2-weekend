@@ -7,7 +7,7 @@ class SongManager
   def initialize(songs_directory)
     if songs_directory
       @songs = []
-      Dir[songs_directory + "/*.txt"].each() do |song_file_name|
+      Dir["#{__dir__}/#{songs_directory}/*.txt"].each() do |song_file_name|
 
         file_data = File.open(song_file_name).read
         file_lines = file_data.lines

@@ -14,8 +14,8 @@ class RoomTest < MiniTest::Test
     @full_room = Room.new("70s Party", 4)
 
     # songs
-    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964)
-    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964)
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1964, ["song lyrics"])
+    @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["song lyrics"])
 
     # guests
     @mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24))
