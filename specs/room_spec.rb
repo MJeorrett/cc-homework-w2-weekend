@@ -30,6 +30,8 @@ class RoomTest < MiniTest::Test
     @full_room.add_guest(@terry_marx)
     @full_room.add_guest(@sam_torrence)
     @full_room.add_guest(@ben_james)
+    @full_room.queue_song(@do_wah_diddy_diddy)
+    @full_room.queue_song(@house_of_the_rising_sun)
   end
 
   def test_has_name()
@@ -95,5 +97,21 @@ class RoomTest < MiniTest::Test
     assert_equal(3, @full_room.guests().count())
     assert_equal(false, @full_room.has_guest?(@mike_jones))
   end
+
+  def test_currently_playing()
+    assert("Do Wah", @full_room.currently_playing())
+  end
+
+#   def test_get_description()
+#     @full_room.remove_guest(@mike_jones)
+#     expected = "70s Party Room
+# playing: Do Wah
+# current line: There she was just a-walkin' down the street, singin' \"Do wah diddy diddy dum diddy do\"
+# guests:
+#   Terry Marx(2008, 3)
+#   Sam Torrence(2012, 18)
+#   Ben James(2013, 13)"
+#     assert_equal(expected, @full_room.get_description())
+#   end
 
 end

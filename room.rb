@@ -54,4 +54,12 @@ class Room < Record
     return @capacity - @guests.length()
   end
 
+  def currently_playing()
+    return @queued_songs.first().title
+  end
+
+#   def get_description()
+#     description = "#{name} Room
+# playing: #{}"
+
 end
