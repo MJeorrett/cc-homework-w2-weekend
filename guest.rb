@@ -8,7 +8,7 @@ class Guest < Record
     @first_name = params[:first_name]
     @last_name = params[:last_name]
     @date_of_birth = params[:date_of_birth]
-    @confidence = params[:confidence]
+    @confidence = params[:confidence].to_f
   end
 
   def full_name()
