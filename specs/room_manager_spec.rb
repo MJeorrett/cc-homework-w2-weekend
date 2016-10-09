@@ -59,4 +59,8 @@ class RoomManagerTest < MiniTest::Test
     assert(@my_room_manager.rooms().include?(seventies_magic))
   end
 
+  def test_can_get_total_capactiy()
+    assert_equal(31, @my_room_manager.total_capacity())
+  end
+
 end

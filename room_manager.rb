@@ -54,4 +54,8 @@ class RoomManager
     end
   end
 
+  def total_capacity()
+    return @rooms.reduce(0) { |total, room| total + room.capacity }
+  end
+
 end
