@@ -43,4 +43,8 @@ class BarTest < MiniTest::Test
     assert(!@mike_jones.at_bar(), ".at_bar status should be false")
   end
 
+  def test_queue_size()
+    assert(3, @bar.queue_size())
+  end
+
 end

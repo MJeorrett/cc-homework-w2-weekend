@@ -16,4 +16,8 @@ class Bar
     first_guest.leave_bar() if first_guest
   end
 
+  def queue_size()
+    return @queue.count()
+  end
+
 end
