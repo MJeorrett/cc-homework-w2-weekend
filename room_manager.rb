@@ -17,9 +17,8 @@ class RoomManager
       new_room = Room.new(room_name, capacity)
       @rooms.push(new_room)
       return new_room
+      save_rooms()
     end
-
-    save_rooms()
   end
 
   def room_names()
@@ -39,11 +38,10 @@ class RoomManager
     if room_to_delete
       @rooms.delete(room_to_delete)
       return room_to_delete
+      save_rooms()
     else
       return false
     end
-
-    save_rooms()
   end
 
   def save_rooms()

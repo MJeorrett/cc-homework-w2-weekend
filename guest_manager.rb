@@ -16,6 +16,8 @@ class GuestManager
     birthday = Date.new(birth_year, birth_month, birth_day)
     new_guest = Guest.new(first_name, last_name, birthday)
     @guests.push(new_guest)
+
+    save_guests()
   end
 
   def has_guest(guest)
