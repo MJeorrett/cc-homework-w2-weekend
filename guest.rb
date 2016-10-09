@@ -33,4 +33,9 @@ class Guest < Record
     return @date_of_birth.year + 16
   end
 
+  def desire_to_sing(song)
+    turned_16_offset = (song.release_year() - year_turned_16()).abs
+    return 100 - turned_16_offset + confidence
+  end
+
 end

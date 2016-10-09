@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 
 require_relative('../guest')
+require_relative('../song')
 
 require('date')
 
@@ -9,6 +10,8 @@ class GuestTest < MiniTest::Test
 
   def setup()
     @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30), 9)
+
+    @house_of_the_rising_sun = Song.new("House of the Rising Sun", "The Animals", 1990, ["At the house of the rising sun", "strange stuff happens"])
   end
 
   def test_guest_has_first_name()
@@ -38,6 +41,10 @@ class GuestTest < MiniTest::Test
 
   def test_year_turned_16()
     assert_equal(2002, @mike_jones.year_turned_16())
+  end
+
+  def test_desire_to_sing_song()
+    assert_equal(97, @mike_jones.desire_to_sing(@house_of_the_rising_sun))
   end
 
 end
