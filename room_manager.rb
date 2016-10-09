@@ -2,11 +2,10 @@ require_relative('yaml_load_save')
 
 class RoomManager
 
-  SAVE_FILE_NAME = "data/rooms.txt"
-
   attr_reader :rooms
 
-  def initialize()
+  def initialize(save_file_path)
+    @save_file_path = save_file_path
     load_rooms()
   end
 
@@ -17,7 +16,6 @@ class RoomManager
       new_room = Room.new(room_name, capacity)
       @rooms.push(new_room)
       return new_room
-      save_rooms()
     end
   end
 
@@ -38,18 +36,22 @@ class RoomManager
     if room_to_delete
       @rooms.delete(room_to_delete)
       return room_to_delete
-      save_rooms()
     else
       return false
     end
   end
 
   def save_rooms()
-    YamlLoadSave::save(SAVE_FILE_NAME, @rooms)
+    YamlLoadSave::save(@save_file_path, @rooms)
   end
 
   def load_rooms()
-    @rooms = YamlLoadSave::load(SAVE_FILE_NAME)
+    rooms = YamlLoadSave::load(@save_file_path)
+    if rooms
+      @rooms = rooms
+    else
+      @rooms = []
+    end
   end
 
 end

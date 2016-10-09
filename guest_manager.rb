@@ -4,12 +4,11 @@ require('pry-byebug')
 
 class GuestManager
 
-  SAVE_FILE_NAME = "data/guests.txt"
-
   attr_reader :guests
 
-  def initialize
-    @guests = []
+  def initialize(save_file_path)
+    @save_file_path = save_file_path
+    load_guests()
   end
 
   def add_guest(first_name, last_name, birth_year, birth_month, birth_day)
@@ -19,7 +18,6 @@ class GuestManager
       return false
     else
       @guests.push(new_guest)
-      save_guests()
     end
   end
 
@@ -28,11 +26,17 @@ class GuestManager
   end
 
   def save_guests()
-    YamlLoadSave::save(SAVE_FILE_NAME, @guests)
+    YamlLoadSave::save(@save_file_path, @guests)
   end
 
   def load_guests()
-    @guests = YamlLoadSave::load(SAVE_FILE_NAME)
+    guests = YamlLoadSave::load(@save_file_path)
+    
+    if guests
+      @guests = guests
+    else
+      @guests = []
+    end
   end
 
 end
