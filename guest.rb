@@ -4,11 +4,11 @@ class Guest < Record
 
   attr_reader :first_name, :last_name, :date_of_birth, :confidence
 
-  def initialize(first_name, last_name, date_of_birth, confidence)
-    @first_name = first_name
-    @last_name = last_name
-    @date_of_birth = date_of_birth
-    @confidence = confidence
+  def initialize(params)
+    @first_name = params[:first_name]
+    @last_name = params[:last_name]
+    @date_of_birth = params[:date_of_birth]
+    @confidence = params[:confidence]
   end
 
   def full_name()

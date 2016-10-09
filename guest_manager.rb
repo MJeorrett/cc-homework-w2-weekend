@@ -11,9 +11,9 @@ class GuestManager
     load_guests()
   end
 
-  def add_guest(first_name, last_name, birth_year, birth_month, birth_day, confidence)
-    birthday = Date.new(birth_year, birth_month, birth_day)
-    new_guest = Guest.new(first_name, last_name, birthday, confidence)
+  def add_guest(params)
+    birthday = Date.new(params[:birth_year], params[:birth_month], params[:birth_day])
+    new_guest = Guest.new(first_name: params[:first_name], last_name: params[:last_name], date_of_birth: birthday, confidence: params[:confidence])
     if has_guest(new_guest)
       return false
     else
