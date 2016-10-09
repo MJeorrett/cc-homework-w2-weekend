@@ -18,13 +18,13 @@ class RoomTest < MiniTest::Test
     @do_wah_diddy_diddy = Song.new("Do Wah", "Manfred Mann", 1964, ["song lyrics"])
 
     # guests
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24))
-    @terry_marx = Guest.new("Terry", "Marx", Date.new(1992, 3, 1))
-    @sam_torrence = Guest.new("Sam", "Torrence", Date.new(1996, 1, 2))
-    @ben_james = Guest.new("Ben", "James", Date.new(1987, 12, 2))
-    @alan_cummings = Guest.new("Alan", "Cummings", Date.new(1979, 5, 12))
-    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett", Date.new(1945, 9, 4))
-    @alison_jeorrett = Guest.new("Alison", "Jeorrett", Date.new(1954, 5, 29))
+    @mike_jones = Guest.new("Mike", "Jones", Date.new(1999, 2, 24), 15)
+    @terry_marx = Guest.new("Terry", "Marx", Date.new(1992, 3, 1), 3)
+    @sam_torrence = Guest.new("Sam", "Torrence", Date.new(1996, 1, 2), 18)
+    @ben_james = Guest.new("Ben", "James", Date.new(1987, 12, 2), 13)
+    @alan_cummings = Guest.new("Alan", "Cummings", Date.new(1979, 5, 12), 8)
+    @catriona_jeorrett = Guest.new("Catriona", "Jeorrett", Date.new(1945, 9, 4), 10)
+    @alison_jeorrett = Guest.new("Alison", "Jeorrett", Date.new(1954, 5, 29), 20)
 
     @full_room.add_guest(@mike_jones)
     @full_room.add_guest(@terry_marx)

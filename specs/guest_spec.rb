@@ -8,7 +8,7 @@ require('date')
 class GuestTest < MiniTest::Test
 
   def setup()
-    @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30))
+    @mike_jones = Guest.new("Mike", "Jones", Date.new(1986, 10, 30), 9)
   end
 
   def test_guest_has_first_name()
@@ -26,6 +26,10 @@ class GuestTest < MiniTest::Test
   def test_guest_has_date_of_birth()
     expected = Date.new(1986, 10, 30)
     assert_equal(expected, @mike_jones.date_of_birth())
+  end
+
+  def test_guest_has_confidence()
+    assert_equal(9, @mike_jones.confidence())
   end
 
   def test_age_correct()

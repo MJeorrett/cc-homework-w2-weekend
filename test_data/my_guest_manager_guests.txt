@@ -3,27 +3,34 @@
   first_name: Mike
   last_name: Jones
   date_of_birth: 1999-02-24
+  confidence: 9
 - !ruby/object:Guest
   first_name: Terry
   last_name: Marx
   date_of_birth: 1992-03-01
+  confidence: 0
 - !ruby/object:Guest
   first_name: Sam
   last_name: Torrence
   date_of_birth: 1996-01-02
+  confidence: 4
 - !ruby/object:Guest
   first_name: Ben
   last_name: James
   date_of_birth: 1987-12-02
+  confidence: 2
 - !ruby/object:Guest
   first_name: Alan
   last_name: Cummings
   date_of_birth: 1979-05-12
+  confidence: 15
 - !ruby/object:Guest
   first_name: Catriona
   last_name: Jeorrett
   date_of_birth: 1945-09-04
+  confidence: 7
 - !ruby/object:Guest
   first_name: Alison
   last_name: Jeorrett
   date_of_birth: 1954-05-29
+  confidence: 12

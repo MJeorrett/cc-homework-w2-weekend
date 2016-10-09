@@ -2,12 +2,13 @@ require_relative('record')
 
 class Guest < Record
 
-  attr_reader :first_name, :last_name, :date_of_birth
+  attr_reader :first_name, :last_name, :date_of_birth, :confidence
 
-  def initialize(first_name, last_name, date_of_birth)
+  def initialize(first_name, last_name, date_of_birth, confidence)
     @first_name = first_name
     @last_name = last_name
     @date_of_birth = date_of_birth
+    @confidence = confidence
   end
 
   def full_name()

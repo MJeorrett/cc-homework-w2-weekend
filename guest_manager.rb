@@ -11,9 +11,9 @@ class GuestManager
     load_guests()
   end
 
-  def add_guest(first_name, last_name, birth_year, birth_month, birth_day)
+  def add_guest(first_name, last_name, birth_year, birth_month, birth_day, confidence)
     birthday = Date.new(birth_year, birth_month, birth_day)
-    new_guest = Guest.new(first_name, last_name, birthday)
+    new_guest = Guest.new(first_name, last_name, birthday, confidence)
     if has_guest(new_guest)
       return false
     else
@@ -31,7 +31,7 @@ class GuestManager
 
   def load_guests()
     guests = YamlLoadSave::load(@save_file_path)
-    
+
     if guests
       @guests = guests
     else
